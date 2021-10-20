@@ -24,7 +24,7 @@ print(boston.feature_names)
 
 x = boston.data
 y = boston.target
-plt.scatter(np.arange(len(y)), y)
+# plt.scatter(np.arange(len(y)), y)
 # plt.show()
 print(type(x))
 print(type(y))
@@ -32,7 +32,7 @@ print(x.shape)
 print(y.shape)
 
 # 异常值处理
-value_idx = [i for i in np.arange(len(y)) if y[i] >= 50]
+value_idx = [i for i in np.arange(len(y)) if y[i] >= 40]
 x = np.delete(x, value_idx, axis=0)
 y = np.delete(y, value_idx, axis=0)
 
@@ -115,5 +115,7 @@ lr.fit(x_train, y_train)
 lr_pred = lr.predict(x_test)
 score = r2_score(y_test, lr_pred)
 print(score)
+print(lr.intercept_)
+print(lr.coef_)
 
 
